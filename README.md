@@ -10,4 +10,5 @@ COMPONENTES:
   - CSS;
   - JavaScript;
   - Imagens: Pixabay, Pinterest;
+  - Figma do Grupo: https://www.figma.com/team_invite/redeem/N8Wk0mab6omMKSYOIOliGK?t=VCP6UaYQNgE0MCog-21
   - Vercel como hospedagem;
