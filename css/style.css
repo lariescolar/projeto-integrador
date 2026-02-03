@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+body{
+    background-color: #FAF5FF ;
+}
+
+.cor-primaria{
+    color: #7C3AED;
+}
+.cor-secundaria{
+    color: #5B21B6;
+}
+.texto{
+    color: #1E1B4B ;
+}
+.botao{
+    color: #A78BFA;
+    border-radius: 25px;
+
+    border-width: 1px;
+}
+
+.cabeçalho{
+    color: #4C766A;
+    width: 1440px;
+    height: 80px;
+    border: 1px solid #000;
+}
+
+.sections{
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    
+}
