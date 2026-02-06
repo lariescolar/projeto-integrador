@@ -1,59 +1,113 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
-body{
-    background-color: #FAF5FF ;
+.dashboard {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    min-height: 100vh;
+    background: #FAF5FF;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.cor-primaria{
-    color: #7C3AED;
-}
-.cor-secundaria{
-    color: #5B21B6;
-}
-.texto{
-    color: #1E1B4B ;
-}
-.botao{
-    color: #A78BFA;
-    border-radius: 25px;
-
-    border-width: 1px;
-}
-
-.cabecalho {
-    background-color: #ffffff;
-    width: 100%;
-    height: 80px;
+.sidebar {
+    background: white;
+    padding: 25px;
     display: flex;
-    align-items: center;
-    border-bottom: 1px solid #ddd;
+    flex-direction: column;
+    gap: 25px;
+    border-right: 1px solid #eee;
 }
 
-.logo {
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sidebar nav a {
+    text-decoration: none;
+    color: #4C766A;
+    font-weight: 500;
+}
+
+.main {
+    padding: 30px;
+}
+
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 25px 0;
+}
+
+.card {
+    background: white;
+    padding: 18px;
+    border-radius: 14px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+.bloco {
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+}
+
+.calendario {
+    grid-column: span 2;
+}
+
+.topbar {
+    background: white;
+    padding: 15px 25px;
+    border-radius: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.menu-topo {
+    display: flex;
+    gap: 22px;
+}
+
+.menu-topo a {
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: #4C766A;
+}
+
+.menu-topo a:hover {
+    color: #1F2F2B;
+}
+
+.perfil-topo {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-
-.sections {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    gap: 30px;
-    width: 100%;
-    margin: 0;
-    padding: 0;
+.foto-perfil {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #A7C4BC;
 }
 
-.sections li a {
-    text-decoration: none;
-    color: #4C766A;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-}
-
-.sections li a:hover {
-    color: #7C3AED;
+.logo-img {
+    height: 38px;
+    width: auto;
 }
