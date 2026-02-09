@@ -1,53 +1,296 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Planner de Estudos | StudyFy</title>
+  <meta name="description" content="Planner de estudos para organizar tarefas, acompanhar metas e visualizar calendário semanal e mensal.">
+
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-<div class="dashboard">
+  <div class="dashboard">
 
-  <aside class="sidebar">
-   <div class="logo">
-    <img src="img/logo-simbolo.svg" alt="Logo do Planner" class="logo-img">
-</div>
+    <!-- SIDEBAR (DESKTOP) -->
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="img/logo-simbolo.svg" alt="Logo do Planner" class="logo-img">
+      </div>
 
-    <nav>
-      <a href="#">Início</a>
-      <a href="#">Planejamento semanal</a>
-      <a href="#">Calendário</a>
-      <a href="#">Plano de estudo</a>
-      <a href="#">Controle de notas</a>
-      <a href="#">Minhas listas</a>
-    </nav>
+      <nav>
+        <a class="active" href="#">Início</a>
+        <a href="#">Planejamento semanal</a>
+        <a href="#">Calendário</a>
+        <a href="#">Plano de estudo</a>
+        <a href="#">Controle de notas</a>
+        <a href="#">Minhas listas</a>
+      </nav>
 
-    <a class="logout" href="#">Logout</a>
-  </aside>
+      <a class="logout" href="#">Logout</a>
+    </aside>
 
-  <main class="main">
-    
-<header class="topbar">
+    <main class="main">
 
-  <nav class="menu-topo">
-    <a href="#">Início</a>
-    <a href="#">Planejamento semanal</a>
-    <a href="#">Calendário</a>
-    <a href="#">Plano de estudo</a>
-    <a href="#">Controle de notas</a>
-    <a href="#">Minhas listas</a>
-  </nav>
+      <!-- TOPBAR -->
+      <header class="topbar">
+        <button class="hamburger" id="openMenu" aria-label="Abrir menu" aria-controls="mobileMenu" aria-expanded="false">
+          ☰
+        </button>
 
-  <div class="perfil-topo">
-    <span>Fernanda</span>
-    <div class="foto-perfil"></div>
+        <nav class="menu-topo">
+          <a class="active" href="#">Início</a>
+          <a href="#">Planejamento semanal</a>
+          <a href="#">Calendário</a>
+          <a href="#">Plano de estudo</a>
+          <a href="#">Controle de notas</a>
+          <a href="#">Minhas listas</a>
+        </nav>
+
+        <div class="perfil-topo">
+          <button class="icon-btn" aria-label="Notificações">🔔</button>
+          <button class="icon-btn" aria-label="Configurações">⚙️</button>
+
+          <div class="perfil-dados">
+            <span class="perfil-nome">Fernanda</span>
+            <div class="foto-perfil"></div>
+          </div>
+        </div>
+      </header>
+
+      <!-- MENU MOBILE (Overlay) -->
+      <div class="mobile-overlay" id="overlay" hidden></div>
+
+      <aside class="mobile-menu" id="mobileMenu" aria-hidden="true">
+        <div class="mobile-menu__top">
+          <img src="img/logo-simbolo.svg" alt="Logo" class="mobile-logo">
+          <button class="icon-btn" id="closeMenu" aria-label="Fechar menu">✕</button>
+        </div>
+
+        <nav class="mobile-nav">
+          <a class="active" href="#">Início</a>
+          <a href="#">Planejamento semanal</a>
+          <a href="#">Calendário</a>
+          <a href="#">Plano de estudo</a>
+          <a href="#">Controle de notas</a>
+          <a href="#">Minhas listas</a>
+          <a class="logout" href="#">Logout</a>
+        </nav>
+      </aside>
+
+      <!-- BANNER -->
+      <section class="banner">
+        <div class="banner-texto">
+          <div class="planner">planner</div>
+          <div class="estudos">DE ESTUDOS</div>
+        </div>
+        <div class="banner-enfeite" aria-hidden="true">
+          <span class="circle gold"></span>
+          <span class="circle green"></span>
+        </div>
+      </section>
+
+      <!-- CARDS -->
+      <section class="cards">
+        <article class="card card-soft">
+          <div class="card-icone">🕒</div>
+          <div>
+            <p class="card-titulo">Horas de estudo</p>
+            <h3 class="card-valor">14h 30m</h3>
+            <p class="card-sub">Esta semana</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-icone">📋</div>
+          <div class="card-grow">
+            <div class="card-row">
+              <div>
+                <p class="card-titulo">Tarefas pendentes</p>
+                <h3 class="card-valor" id="pendentes">0</h3>
+              </div>
+              <span class="pill" id="pill">0%</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar" id="bar" style="width:0%"></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card card-warn">
+          <div class="card-icone">📆</div>
+          <div>
+            <p class="card-titulo">Prova em <b>2 dias</b></p>
+            <h3 class="card-valor">Direito Ambiental</h3>
+            <p class="card-sub">27 Abril • 10:00</p>
+          </div>
+        </article>
+      </section>
+
+      <!-- GRID PRINCIPAL -->
+      <section class="grid">
+        <section class="bloco">
+          <div class="bloco-topo">
+            <div>
+              <h2>Planejamento semanal</h2>
+              <p class="sub">Semana 15 de abril — 21 de abril</p>
+            </div>
+
+            <div class="tabs">
+              <button class="tab is-active">Seg</button>
+              <button class="tab">Ter</button>
+              <button class="tab">Qua</button>
+              <button class="tab">Qui</button>
+              <button class="tab">Sex</button>
+              <button class="tab">Sáb</button>
+              <button class="tab">Dom</button>
+            </div>
+          </div>
+
+          <!-- TAREFAS -->
+          <div class="tarefas">
+            <div class="tarefas-head">
+              <h3>Tarefas</h3>
+              <button class="mini-btn" id="addTaskBtn" title="Adicionar tarefa">＋</button>
+            </div>
+
+            <ul class="tarefas-lista" id="lista"></ul>
+
+            <button class="btn" id="addTaskFooter">Adicionar tarefa</button>
+          </div>
+
+          <div class="calendario">
+            <h2>Calendário mensal</h2>
+            <div class="mes">
+              <button class="icon-btn" aria-label="Anterior">‹</button>
+              <span>Abril 2024</span>
+              <button class="icon-btn" aria-label="Próximo">›</button>
+            </div>
+          </div>
+        </section>
+
+        <aside class="coluna">
+          <!-- EVENTOS -->
+          <section class="bloco">
+            <div class="bloco-topo compacto">
+              <h3>Eventos da semana</h3>
+            </div>
+
+            <div class="eventos" id="eventosWrap">
+              <div id="eventosLista"></div>
+
+              <button class="btn full" id="addEventBtn">Criar evento</button>
+
+              <div class="mini-cal">
+                <div class="mini-topo">
+                  <h3>Calendário mensal</h3>
+                  <span class="seta">›</span>
+                </div>
+
+                <div class="mini-grid" id="mini"></div>
+
+                <div class="legenda">
+                  <span class="dot"></span>
+                  <span>Prova</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- NOTAS -->
+          <section class="bloco notas">
+            <div class="bloco-topo compacto">
+              <h3>Notas importantes</h3>
+            </div>
+
+            <div class="notes-actions">
+              <button class="btn full muted" id="addNoteBtn">Adicionar nota</button>
+            </div>
+
+            <ul id="notesList"></ul>
+
+            <button class="btn full muted">Ver todas as notas</button>
+          </section>
+        </aside>
+      </section>
+
+    </main>
   </div>
 
-</header>
-  </main>
+  <!-- MODAL TAREFA -->
+  <dialog class="modal" id="taskModal">
+    <form method="dialog" class="modal__box" id="taskForm">
+      <h3 id="taskModalTitle">Adicionar tarefa</h3>
 
-</div>
-  </header>
+      <input type="hidden" id="taskId">
+
+      <label class="field">
+        <span>Nome da tarefa</span>
+        <input type="text" id="taskName" placeholder="Ex: Revisar capítulo 3" required />
+      </label>
+
+      <label class="field">
+        <span>Horário</span>
+        <input type="time" id="taskTime" value="08:00" required />
+      </label>
+
+      <div class="modal__actions">
+        <button class="btn btn--muted" value="cancel">Cancelar</button>
+        <button class="btn" id="saveTaskBtn" value="default">Salvar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- MODAL EVENTO -->
+  <dialog class="modal" id="eventModal">
+    <form method="dialog" class="modal__box" id="eventForm">
+      <h3 id="eventModalTitle">Criar evento</h3>
+
+      <input type="hidden" id="eventId">
+
+      <label class="field">
+        <span>Título</span>
+        <input type="text" id="eventTitle" placeholder="Ex: Aula de Matemática" required />
+      </label>
+
+      <label class="field">
+        <span>Dia (1-30)</span>
+        <input type="number" id="eventDay" min="1" max="30" value="17" required />
+      </label>
+
+      <label class="field">
+        <span>Horário</span>
+        <input type="text" id="eventTime" placeholder="Ex: 19:00 — 21:00" required />
+      </label>
+
+      <div class="modal__actions">
+        <button class="btn btn--muted" value="cancel">Cancelar</button>
+        <button class="btn" id="saveEventBtn" value="default">Salvar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- MODAL NOTA -->
+  <dialog class="modal" id="noteModal">
+    <form method="dialog" class="modal__box" id="noteForm">
+      <h3 id="noteModalTitle">Adicionar nota</h3>
+
+      <input type="hidden" id="noteId">
+
+      <label class="field">
+        <span>Texto da nota</span>
+        <textarea id="noteText" rows="4" placeholder="Escreva aqui..." required></textarea>
+      </label>
+
+      <div class="modal__actions">
+        <button class="btn btn--muted" value="cancel">Cancelar</button>
+        <button class="btn" id="saveNoteBtn" value="default">Salvar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="js/index.js"></script>
 </body>
 </html>
