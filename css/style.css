@@ -653,14 +653,146 @@ body{
   background: rgba(255,255,255,.75);
 }
 
+/* ===== FOOTER ===== */
+.footer{
+  margin: 0 18px 18px;
+  border: 1px solid var(--borda);
+  border-radius: 22px;
+  background: rgba(255,255,255,.55);
+  box-shadow: 0 8px 20px rgba(31,47,43,.06);
+  overflow: hidden;
+}
+.footer__content{
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.footer__brand{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.footer__logo{
+  height: 34px;
+  width: auto;
+  opacity: .9;
+}
+.footer__title{
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  color: rgba(31,47,43,.85);
+}
+.footer__subtitle{
+  font-size: 12px;
+  color: rgba(31,47,43,.55);
+}
+.footer__links{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.footer__links a{
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  color: rgba(31,47,43,.65);
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+}
+.footer__links a:hover{
+  background: rgba(167,196,188,.20);
+  border-color: rgba(167,196,188,.35);
+}
+.footer__copy{
+  font-size: 12px;
+  color: rgba(31,47,43,.55);
+}
+
+/* Grid principal mais responsivo */
+.dashboard{
+  grid-template-columns: minmax(220px, 260px) minmax(0, 1fr);
+}
+
+/* Permitir que o main realmente encolha sem “estourar” */
+.main{
+  min-width: 0;
+}
+
+/* Topbar: pode quebrar, mas o MENU não quebra (vira scroll) */
+.topbar{
+  flex-wrap: wrap;
+}
+
+.menu-topo{
+  min-width: 0;
+  flex: 1 1 auto;
+
+  /* não quebrar em 2 linhas */
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  white-space: nowrap;
+
+  /* scroll mais suave no mobile/tablet */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.menu-topo a{
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.perfil-topo{
+  flex: 0 0 auto; /* não esmagar o perfil */
+}
+
+/* Cards não “forçam” 3 colunas quando não cabe */
+.cards{
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+/* Grid principal com colunas que podem encolher */
+.grid{
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+}
+
+/* Evitar overflow em linhas com texto + ações (editar/excluir) */
+.tarefa, .evento, .note-item{
+  min-width: 0;
+}
+
+.texto,
+.info,
+.note-text{
+  min-width: 0;
+}
+
+/* Botões de ação não “estouram” a linha */
+.actions{
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+/* Footer no mobile */
+@media (max-width: 520px){
+  .footer{ margin: 0 12px 12px; }
+  .footer__content{ padding: 12px; }
+}
 /* Tablet */
-@media (max-width: 1100px){
+@media (max-width: 1250px){
   .dashboard{ grid-template-columns: 1fr; padding:12px; gap:12px; }
   .sidebar{ display:none; }
   .hamburger{ display:inline-flex; }
   .menu-topo{ display:none; }
   .cards{ grid-template-columns: 1fr; }
   .grid{ grid-template-columns: 1fr; }
+  .texto{ max-width: 260px; }
 }
 
 /* Celular */

@@ -439,6 +439,10 @@ function renderMiniCalendar(){
   }
 }
 
+// Ano automático no footer
+const yearEl = document.getElementById("year");
+if (yearEl) yearEl.textContent = new Date().getFullYear();
+
 // ======================
 // SAFE HTML
 // ======================
