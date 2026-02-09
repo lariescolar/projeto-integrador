@@ -637,6 +637,22 @@ body{
   color: var(--texto);
 }
 
+/* ===== Eventos dinâmicos ===== */
+#eventosLista{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.evento-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 10px;
+  border:1px solid rgba(220,231,227,.95);
+  border-radius:16px;
+  background: rgba(255,255,255,.75);
+}
+
 /* Tablet */
 @media (max-width: 1100px){
   .dashboard{ grid-template-columns: 1fr; padding:12px; gap:12px; }
