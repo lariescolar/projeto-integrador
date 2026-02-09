@@ -14,7 +14,7 @@
   🎨 Protótipo no Figma:
     👉 https://www.figma.com/team_invite/redeem/N8Wk0mab6omMKSYOIOliGK?t=OxaC1gE1lTTwLcgA-21
 
-  📊 Slides de defesa (PDF):
+  📊 Slides de defesa (CANVA):
     👉 https://www.canva.com/design/DAHA1ahzEGc/52DLi_sHnlUeP2EYVVMfyQ/edit?utm_content=DAHA1ahzEGc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
 🧠 Sobre o Projeto
