@@ -42,7 +42,7 @@ body{
   gap:14px;
 }
 
-.logo{ padding:6px 10px 10px; }
+.logo{ padding: 6px 10px 10px; display:flex; gap: 15px;}
 .logo-img{ height:40px; width:auto; }
 
 .sidebar nav{
